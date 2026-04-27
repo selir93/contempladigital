@@ -55,7 +55,7 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding: 70px 0;
+      padding: 70px 0 40px;
     }
 
     .hero {
@@ -176,6 +176,57 @@
       font-size: 1.08rem;
     }
 
+    .carousel {
+      position: relative;
+      max-width: 1120px;
+      margin: auto;
+      overflow: hidden;
+      border-radius: 32px;
+      border: 1px solid rgba(0,209,255,.35);
+      box-shadow:
+        0 0 35px rgba(0,209,255,.22),
+        0 0 65px rgba(255,46,136,.10);
+    }
+
+    .slides {
+      display: flex;
+      transition: transform .55s ease;
+    }
+
+    .slides a {
+      width: 100%;
+      min-width: 100%;
+      display: block;
+    }
+
+    .slides img,
+    .slides a img {
+      width: 100%;
+      min-width: 100%;
+      height: 640px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .carousel button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 54px;
+      height: 54px;
+      background: rgba(0,0,0,.58);
+      color: white;
+      border: 1px solid #00d1ff;
+      font-size: 28px;
+      cursor: pointer;
+      border-radius: 50%;
+      box-shadow: 0 0 16px #00d1ff;
+      z-index: 10;
+    }
+
+    .prev { left: 18px; }
+    .next { right: 18px; }
+
     .cards {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -286,49 +337,6 @@
       object-fit: cover;
     }
 
-    .carousel {
-      position: relative;
-      max-width: 1120px;
-      margin: auto;
-      overflow: hidden;
-      border-radius: 32px;
-      border: 1px solid rgba(0,209,255,.35);
-      box-shadow:
-        0 0 35px rgba(0,209,255,.22),
-        0 0 65px rgba(255,46,136,.10);
-    }
-
-    .slides {
-      display: flex;
-      transition: transform .55s ease;
-    }
-
-    .slides img {
-      width: 100%;
-      min-width: 100%;
-      height: 640px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .carousel button {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 54px;
-      height: 54px;
-      background: rgba(0,0,0,.58);
-      color: white;
-      border: 1px solid #00d1ff;
-      font-size: 28px;
-      cursor: pointer;
-      border-radius: 50%;
-      box-shadow: 0 0 16px #00d1ff;
-    }
-
-    .prev { left: 18px; }
-    .next { right: 18px; }
-
     .cta-final {
       text-align: center;
       padding: 60px 30px;
@@ -386,7 +394,8 @@
         transform: none;
       }
 
-      .slides img {
+      .slides img,
+      .slides a img {
         height: 420px;
       }
     }
@@ -396,7 +405,8 @@
         padding: 10px;
       }
 
-      .slides img {
+      .slides img,
+      .slides a img {
         height: 300px;
       }
 
@@ -435,6 +445,38 @@
     </div>
   </div>
 </header>
+
+<section id="portfolio">
+  <div class="container">
+    <h2 class="section-title">Modelos que <span>impressionam</span></h2>
+    <p class="section-desc">
+      Veja alguns exemplos de páginas, sites, cartões e projetos desenvolvidos pela Contempla Digital.
+    </p>
+
+    <div class="carousel">
+      <div class="slides" id="slides">
+        <a href="https://link-do-cliente-1.com" target="_blank">
+          <img src="img/foto1.png" alt="Projeto 1">
+        </a>
+
+        <a href="https://link-do-cliente-2.com" target="_blank">
+          <img src="img/foto2.png" alt="Projeto 2">
+        </a>
+
+        <a href="https://link-do-cliente-3.com" target="_blank">
+          <img src="img/foto3.png" alt="Projeto 3">
+        </a>
+
+        <a href="https://link-do-cliente-4.com" target="_blank">
+          <img src="img/foto4.png" alt="Projeto 4">
+        </a>
+      </div>
+
+      <button class="prev" onclick="mudarSlide(-1)">❮</button>
+      <button class="next" onclick="mudarSlide(1)">❯</button>
+    </div>
+  </div>
+</section>
 
 <section id="servicos">
   <div class="container">
@@ -543,7 +585,7 @@
           <li>Cartão de visitas digital</li>
           <li>Botão direto para WhatsApp</li>
           <li>Links para redes sociais</li>
-          <li>Estrutura ideal para personal trainer, pedreiro, faxineira, manicure e autônomos</li>
+          <li>Ideal para personal trainer, pedreiro, faxineira, manicure e autônomos</li>
         </ul>
         <a class="btn" href="https://wa.me/5554996900019" target="_blank">Quero o Essencial</a>
       </div>
@@ -612,27 +654,6 @@
         <h3>ContemplaPulseNFC</h3>
         <p>Pulseira NFC moderna para eventos, profissionais, atendimento presencial e ações promocionais com acesso rápido à presença digital.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <h2 class="section-title">Modelos que <span>impressionam</span></h2>
-    <p class="section-desc">
-      Espaço para mostrar exemplos de páginas, cartões, artes, projetos entregues e demonstrações visuais para clientes.
-    </p>
-
-    <div class="carousel">
-      <div class="slides" id="slides">
-        <img src="img/foto1.png" alt="Projeto 1">
-        <img src="img/foto2.png" alt="Projeto 2">
-        <img src="img/foto3.png" alt="Projeto 3">
-        <img src="img/foto4.png" alt="Projeto 4">
-      </div>
-
-      <button class="prev" onclick="mudarSlide(-1)">❮</button>
-      <button class="next" onclick="mudarSlide(1)">❯</button>
     </div>
   </div>
 </section>
