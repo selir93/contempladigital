@@ -1,684 +1,709 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contempla Digital</title>
+!DOCTYPE html
+html lang=pt-BR
+head
+  meta charset=UTF-8 
+  meta name=viewport content=width=device-width, initial-scale=1.0 
+  titleContempla Digitaltitle
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, Helvetica, sans-serif;
+  style
+     {
+      margin 0;
+      padding 0;
+      box-sizing border-box;
+      font-family Arial, Helvetica, sans-serif;
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior smooth; }
 
     body {
-      background: radial-gradient(circle at top, #101625, #050509 70%);
-      color: #fff;
-      line-height: 1.6;
-      overflow-x: hidden;
+      background radial-gradient(circle at top, #101625, #050509 70%);
+      color #fff;
+      line-height 1.6;
+      overflow-x hidden;
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background:
+    bodybefore {
+      content ;
+      position fixed;
+      inset 0;
+      background
         linear-gradient(rgba(0, 209, 255, 0.055) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 46, 136, 0.045) 1px, transparent 1px);
-      background-size: 48px 48px;
-      pointer-events: none;
-      z-index: -2;
+      background-size 48px 48px;
+      pointer-events none;
+      z-index -2;
     }
 
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background:
+    bodyafter {
+      content ;
+      position fixed;
+      inset 0;
+      background
         radial-gradient(circle at 20% 10%, rgba(255, 46, 136, .13), transparent 30%),
         radial-gradient(circle at 80% 10%, rgba(0, 209, 255, .13), transparent 30%),
         radial-gradient(circle at 50% 90%, rgba(138, 46, 255, .12), transparent 35%);
-      pointer-events: none;
-      z-index: -1;
+      pointer-events none;
+      z-index -1;
     }
 
     .container {
-      width: min(1180px, 92%);
-      margin: auto;
+      width min(1180px, 92%);
+      margin auto;
     }
 
     header {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 70px 0;
+      min-height 100vh;
+      display flex;
+      align-items center;
+      padding 50px 0 70px;
     }
 
     .hero {
-      text-align: center;
+      text-align center;
     }
 
     .hero-logo {
-      width: min(980px, 100%);
-      margin: 0 auto 42px;
-      padding: 18px;
-      border-radius: 32px;
-      background: linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
-      border: 1px solid rgba(0, 209, 255, .35);
-      box-shadow:
+      width min(1080px, 100%);
+      margin 0 auto 38px;
+      padding 16px;
+      border-radius 32px;
+      background linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+      border 1px solid rgba(0, 209, 255, .35);
+      box-shadow
         0 0 45px rgba(0, 209, 255, .28),
         0 0 90px rgba(255, 46, 136, .14);
     }
 
     .hero-logo img {
-      width: 100%;
-      display: block;
-      border-radius: 24px;
+      width 100%;
+      display block;
+      border-radius 24px;
     }
 
     .badge {
-      display: inline-flex;
-      color: #00d1ff;
-      border: 1px solid rgba(0, 209, 255, .35);
-      background: rgba(0, 209, 255, .08);
-      padding: 9px 18px;
-      border-radius: 999px;
-      box-shadow: 0 0 18px rgba(0, 209, 255, .18);
-      font-size: .92rem;
-      margin-bottom: 20px;
+      display inline-flex;
+      color #00d1ff;
+      border 1px solid rgba(0, 209, 255, .35);
+      background rgba(0, 209, 255, .08);
+      padding 9px 18px;
+      border-radius 999px;
+      box-shadow 0 0 18px rgba(0, 209, 255, .18);
+      font-size .92rem;
+      margin-bottom 20px;
     }
 
     h1 {
-      font-size: clamp(2.3rem, 5.4vw, 5rem);
-      line-height: 1.05;
-      letter-spacing: -2px;
-      margin-bottom: 22px;
+      font-size clamp(2.3rem, 5.4vw, 5rem);
+      line-height 1.05;
+      letter-spacing -2px;
+      margin-bottom 22px;
     }
 
     h1 span,
     .section-title span {
-      background: linear-gradient(90deg, #00d1ff, #ffffff, #ff2e88);
-      -webkit-background-clip: text;
-      color: transparent;
-      text-shadow: 0 0 28px rgba(0, 209, 255, .20);
+      background linear-gradient(90deg, #00d1ff, #ffffff, #ff2e88);
+      -webkit-background-clip text;
+      color transparent;
+      text-shadow 0 0 28px rgba(0, 209, 255, .20);
     }
 
     .hero p {
-      color: #d6e2f0;
-      font-size: 1.18rem;
-      max-width: 760px;
-      margin: 0 auto 30px;
+      color #d6e2f0;
+      font-size 1.18rem;
+      max-width 760px;
+      margin 0 auto 30px;
     }
 
     .btn-area {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      justify-content: center;
-      margin-top: 28px;
+      display flex;
+      flex-wrap wrap;
+      gap 15px;
+      justify-content center;
+      margin-top 28px;
     }
 
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 52px;
-      padding: 14px 26px;
-      border-radius: 999px;
-      text-decoration: none;
-      color: #fff;
-      font-weight: 800;
-      border: 1px solid rgba(0, 209, 255, .75);
-      background: rgba(0, 209, 255, .08);
-      box-shadow: 0 0 18px rgba(0, 209, 255, .35);
-      transition: .3s ease;
+      display inline-flex;
+      align-items center;
+      justify-content center;
+      min-height 52px;
+      padding 14px 26px;
+      border-radius 999px;
+      text-decoration none;
+      color #fff;
+      font-weight 800;
+      border 1px solid rgba(0, 209, 255, .75);
+      background rgba(0, 209, 255, .08);
+      box-shadow 0 0 18px rgba(0, 209, 255, .35);
+      transition .3s ease;
     }
 
-    .btn:hover {
-      transform: translateY(-4px);
-      background: #00d1ff;
-      color: #050509;
-      box-shadow: 0 0 28px rgba(0, 209, 255, .75), 0 0 50px rgba(255, 46, 136, .25);
+    .btnhover {
+      transform translateY(-4px);
+      background #00d1ff;
+      color #050509;
+      box-shadow 0 0 28px rgba(0, 209, 255, .75), 0 0 50px rgba(255, 46, 136, .25);
     }
 
     .btn-pink {
-      border-color: rgba(255, 46, 136, .75);
-      background: rgba(255, 46, 136, .08);
-      box-shadow: 0 0 18px rgba(255, 46, 136, .35);
+      border-color rgba(255, 46, 136, .75);
+      background rgba(255, 46, 136, .08);
+      box-shadow 0 0 18px rgba(255, 46, 136, .35);
     }
 
-    .btn-pink:hover {
-      background: #ff2e88;
-      color: white;
+    .btn-pinkhover {
+      background #ff2e88;
+      color white;
     }
 
     section {
-      padding: 88px 0;
+      padding 88px 0;
     }
 
     .section-title {
-      text-align: center;
-      margin-bottom: 18px;
-      font-size: clamp(2rem, 4vw, 3.4rem);
-      line-height: 1.1;
-      letter-spacing: -1px;
+      text-align center;
+      margin-bottom 18px;
+      font-size clamp(2rem, 4vw, 3.4rem);
+      line-height 1.1;
+      letter-spacing -1px;
     }
 
     .section-desc {
-      max-width: 800px;
-      margin: 0 auto 46px;
-      text-align: center;
-      color: #b9c7d8;
-      font-size: 1.08rem;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 22px;
-    }
-
-    .card, .plan, .product, .about-box {
-      background: linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.025));
-      border: 1px solid rgba(0,209,255,.25);
-      padding: 28px;
-      border-radius: 24px;
-      box-shadow: 0 0 24px rgba(0,209,255,.10);
-      transition: .35s ease;
-    }
-
-    .card:hover, .plan:hover, .product:hover {
-      transform: translateY(-8px);
-      border-color: rgba(255,46,136,.65);
-      box-shadow: 0 0 32px rgba(255,46,136,.24);
-    }
-
-    .card h3, .plan h3, .product h3 {
-      color: #00d1ff;
-      font-size: 1.25rem;
-      margin-bottom: 14px;
-    }
-
-    .card p, .plan p, .product p, .about-box p {
-      color: #d7deea;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-
-    .about-box h3 {
-      color: #ff2e88;
-      font-size: 1.5rem;
-      margin-bottom: 14px;
-    }
-
-    .plans {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .plan.featured {
-      border-color: rgba(255,46,136,.75);
-      transform: scale(1.035);
-      box-shadow: 0 0 42px rgba(255,46,136,.25);
-    }
-
-    .price {
-      font-size: 2.1rem;
-      font-weight: 900;
-      color: #fff;
-      margin: 14px 0 4px;
-    }
-
-    .monthly {
-      color: #00d1ff;
-      font-weight: 700;
-      margin-bottom: 18px;
-      display: block;
-    }
-
-    .plan ul {
-      list-style: none;
-      display: grid;
-      gap: 10px;
-      color: #d7deea;
-      margin: 22px 0 26px;
-    }
-
-    .plan li::before {
-      content: "✓";
-      color: #00d1ff;
-      margin-right: 10px;
-      font-weight: bold;
-    }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .product-img {
-      width: 100%;
-      height: 250px;
-      border-radius: 20px;
-      background: rgba(0,0,0,.35);
-      border: 1px dashed rgba(0,209,255,.45);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #7bdfff;
-      margin-bottom: 20px;
-      overflow: hidden;
-    }
-
-    .product-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      max-width 800px;
+      margin 0 auto 46px;
+      text-align center;
+      color #b9c7d8;
+      font-size 1.08rem;
     }
 
     .carousel {
-      position: relative;
-      max-width: 1120px;
-      margin: auto;
-      overflow: hidden;
-      border-radius: 32px;
-      border: 1px solid rgba(0,209,255,.35);
-      box-shadow:
+      position relative;
+      max-width 1120px;
+      margin auto;
+      overflow hidden;
+      border-radius 32px;
+      border 1px solid rgba(0,209,255,.35);
+      box-shadow
         0 0 35px rgba(0,209,255,.22),
         0 0 65px rgba(255,46,136,.10);
     }
 
     .slides {
-      display: flex;
-      transition: transform .55s ease;
+      display flex;
+      transition transform .55s ease;
+    }
+
+    .slides a {
+      width 100%;
+      min-width 100%;
+      display block;
     }
 
     .slides img {
-      width: 100%;
-      min-width: 100%;
-      height: 640px;
-      object-fit: cover;
-      display: block;
+      width 100%;
+      height 640px;
+      object-fit cover;
+      display block;
     }
 
     .carousel button {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 54px;
-      height: 54px;
-      background: rgba(0,0,0,.58);
-      color: white;
-      border: 1px solid #00d1ff;
-      font-size: 28px;
-      cursor: pointer;
-      border-radius: 50%;
-      box-shadow: 0 0 16px #00d1ff;
+      position absolute;
+      top 50%;
+      transform translateY(-50%);
+      width 54px;
+      height 54px;
+      background rgba(0,0,0,.58);
+      color white;
+      border 1px solid #00d1ff;
+      font-size 28px;
+      cursor pointer;
+      border-radius 50%;
+      box-shadow 0 0 16px #00d1ff;
+      z-index 10;
     }
 
-    .prev { left: 18px; }
-    .next { right: 18px; }
+    .prev { left 18px; }
+    .next { right 18px; }
+
+    .cards {
+      display grid;
+      grid-template-columns repeat(4, 1fr);
+      gap 22px;
+    }
+
+    .card, .plan, .product, .about-box {
+      background linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.025));
+      border 1px solid rgba(0,209,255,.25);
+      padding 28px;
+      border-radius 24px;
+      box-shadow 0 0 24px rgba(0,209,255,.10);
+      transition .35s ease;
+    }
+
+    .cardhover, .planhover, .producthover {
+      transform translateY(-8px);
+      border-color rgba(255,46,136,.65);
+      box-shadow 0 0 32px rgba(255,46,136,.24);
+    }
+
+    .card h3, .plan h3, .product h3 {
+      color #00d1ff;
+      font-size 1.25rem;
+      margin-bottom 14px;
+    }
+
+    .card p, .plan p, .product p, .about-box p {
+      color #d7deea;
+    }
+
+    .about-grid {
+      display grid;
+      grid-template-columns 1fr 1fr;
+      gap 24px;
+    }
+
+    .about-box h3 {
+      color #ff2e88;
+      font-size 1.5rem;
+      margin-bottom 14px;
+    }
+
+    .products {
+      display grid;
+      grid-template-columns repeat(3, 1fr);
+      gap 24px;
+    }
+
+    .product-img {
+      width 100%;
+      height 250px;
+      border-radius 20px;
+      background rgba(0,0,0,.35);
+      border 1px dashed rgba(0,209,255,.45);
+      display flex;
+      align-items center;
+      justify-content center;
+      color #7bdfff;
+      margin-bottom 20px;
+      overflow hidden;
+    }
+
+    .product-img img {
+      width 100%;
+      height 100%;
+      object-fit cover;
+    }
+
+    .plans {
+      display grid;
+      grid-template-columns repeat(3, 1fr);
+      gap 24px;
+    }
+
+    .plan.featured {
+      border-color rgba(255,46,136,.75);
+      transform scale(1.035);
+      box-shadow 0 0 42px rgba(255,46,136,.25);
+    }
+
+    .price {
+      font-size 2.1rem;
+      font-weight 900;
+      color #fff;
+      margin 14px 0 4px;
+    }
+
+    .monthly {
+      color #00d1ff;
+      font-weight 700;
+      margin-bottom 18px;
+      display block;
+    }
+
+    .plan ul {
+      list-style none;
+      display grid;
+      gap 10px;
+      color #d7deea;
+      margin 22px 0 26px;
+    }
+
+    .plan libefore {
+      content ✓;
+      color #00d1ff;
+      margin-right 10px;
+      font-weight bold;
+    }
 
     .cta-final {
-      text-align: center;
-      padding: 60px 30px;
-      border-radius: 34px;
-      background:
+      text-align center;
+      padding 60px 30px;
+      border-radius 34px;
+      background
         radial-gradient(circle at top left, rgba(0,209,255,.18), transparent 35%),
         radial-gradient(circle at bottom right, rgba(255,46,136,.18), transparent 35%),
         rgba(255,255,255,.045);
-      border: 1px solid rgba(255,255,255,.12);
-      box-shadow: 0 0 45px rgba(0,209,255,.14);
+      border 1px solid rgba(255,255,255,.12);
+      box-shadow 0 0 45px rgba(0,209,255,.14);
     }
 
     .cta-final h2 {
-      font-size: clamp(2rem, 5vw, 4rem);
-      line-height: 1.08;
-      margin-bottom: 18px;
+      font-size clamp(2rem, 5vw, 4rem);
+      line-height 1.08;
+      margin-bottom 18px;
     }
 
     footer {
-      padding: 38px 20px;
-      text-align: center;
-      color: #9fb0c4;
-      border-top: 1px solid rgba(0,209,255,.18);
-      background: rgba(0,0,0,.25);
+      padding 38px 20px;
+      text-align center;
+      color #9fb0c4;
+      border-top 1px solid rgba(0,209,255,.18);
+      background rgba(0,0,0,.25);
     }
 
     .whatsapp-fixo {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      z-index: 9999;
-      background: linear-gradient(135deg, #00d1ff, #ff2e88);
-      color: white;
-      text-decoration: none;
-      padding: 15px 20px;
-      border-radius: 999px;
-      font-weight: 900;
-      box-shadow:
-        0 0 22px rgba(0, 209, 255, .75),
-        0 0 42px rgba(255, 46, 136, .35);
-      animation: pulseWhats 1.8s infinite alternate;
+      position fixed;
+      right 18px;
+      bottom 18px;
+      z-index 9999;
+      width 52px;
+      height 52px;
+      border-radius 50%;
+      background linear-gradient(135deg, #00d1ff, #ff2e88);
+      color white;
+      text-decoration none;
+      display flex;
+      align-items center;
+      justify-content center;
+      font-size 24px;
+      box-shadow
+        0 0 18px rgba(0, 209, 255, .55),
+        0 0 28px rgba(255, 46, 136, .25);
     }
 
-    @keyframes pulseWhats {
-      from { transform: translateY(0); }
-      to { transform: translateY(-5px); }
-    }
-
-    @media (max-width: 980px) {
+    @media (max-width 980px) {
       .cards, .plans, .products, .about-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns 1fr;
       }
 
       .plan.featured {
-        transform: none;
+        transform none;
       }
 
       .slides img {
-        height: 420px;
+        height 420px;
       }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width 600px) {
+      header {
+        min-height auto;
+        padding-top 35px;
+      }
+
       .hero-logo {
-        padding: 10px;
+        padding 8px;
+        border-radius 22px;
+      }
+
+      .hero-logo img {
+        border-radius 16px;
       }
 
       .slides img {
-        height: 300px;
+        height 300px;
       }
 
       .whatsapp-fixo {
-        right: 14px;
-        bottom: 14px;
-        padding: 13px 16px;
-        font-size: .9rem;
+        width 46px;
+        height 46px;
+        font-size 21px;
+        right 12px;
+        bottom 12px;
       }
     }
-  </style>
-</head>
+  style
+head
 
-<body>
+body
 
-<header>
-  <div class="container hero">
-    <div class="hero-logo">
-      <img src="img/logo-cyberpunk.png" alt="Contempla Digital">
-    </div>
+header
+  div class=container hero
+    div class=hero-logo
+      img src=imglogo-principal.png alt=Contempla Digital
+    div
 
-    <div class="badge">Sites • Páginas profissionais • Cartões NFC • Presença digital</div>
+    div class=badgeSites • Páginas profissionais • Cartões NFC • Presença digitaldiv
 
-    <h1>Sua empresa com uma <span>presença digital premium</span></h1>
+    h1Sua empresa com uma spanpresença digital premiumspanh1
 
-    <p>
+    p
       Criamos soluções visuais, modernas e funcionais para empresas que querem aparecer melhor,
       transmitir profissionalismo e facilitar o contato com seus clientes.
-    </p>
+    p
 
-    <div class="btn-area">
-      <a class="btn" href="https://wa.me/5554996900019" target="_blank">Falar no WhatsApp</a>
-      <a class="btn btn-pink" href="#servicos">Conhecer serviços</a>
-      <a class="btn" href="https://www.instagram.com/" target="_blank">Instagram</a>
-      <a class="btn btn-pink" href="https://www.google.com/search?q=Contempla+Digital+avalia%C3%A7%C3%B5es" target="_blank">Avaliações Google</a>
-    </div>
-  </div>
-</header>
+    div class=btn-area
+      a class=btn href=httpswa.me5554996900019 target=_blankFalar no WhatsAppa
+      a class=btn btn-pink href=#servicosConhecer serviçosa
+      a class=btn btn-pink href=httpswww.google.comsearchq=Contempla+Digital+avalia%C3%A7%C3%B5es target=_blankAvaliações Googlea
+    div
+  div
+header
 
-<section id="servicos">
-  <div class="container">
-    <h2 class="section-title">Serviços para <span>crescimento digital</span></h2>
-    <p class="section-desc">
+section id=servicos
+  div class=container
+    h2 class=section-titleServiços para spancrescimento digitalspanh2
+    p class=section-desc
       A Contempla Digital transforma negócios em experiências digitais acessíveis, modernas e prontas para gerar contato.
-      Não entregamos apenas uma página: entregamos posicionamento, presença e uma forma mais profissional de ser encontrado.
-    </p>
+      Não entregamos apenas uma página entregamos posicionamento, presença e uma forma mais profissional de ser encontrado.
+    p
 
-    <div class="cards">
-      <div class="card">
-        <h3>Página profissional</h3>
-        <p>Ideal para autônomos e empreendedores individuais que precisam apresentar seus serviços com clareza, credibilidade e acesso rápido ao WhatsApp.</p>
-      </div>
+    div class=cards
+      div class=card
+        h3Página profissionalh3
+        pIdeal para autônomos e empreendedores individuais que precisam apresentar seus serviços com clareza, credibilidade e acesso rápido ao WhatsApp.p
+      div
 
-      <div class="card">
-        <h3>Site institucional</h3>
-        <p>Perfeito para pequenas empresas que desejam mostrar serviços, fotos, avaliações, redes sociais, localização e diferenciais em uma estrutura moderna.</p>
-      </div>
+      div class=card
+        h3Site institucionalh3
+        pPerfeito para pequenas empresas que desejam mostrar serviços, fotos, avaliações, redes sociais, localização e diferenciais em uma estrutura moderna.p
+      div
 
-      <div class="card">
-        <h3>Cartão digital NFC</h3>
-        <p>Seu cliente aproxima o celular e acessa sua página, contato, redes sociais, catálogo, portfólio ou WhatsApp em segundos.</p>
-      </div>
+      div class=card
+        h3Cartão digital NFCh3
+        pSeu cliente aproxima o celular e acessa sua página, contato, redes sociais, catálogo, portfólio ou WhatsApp em segundos.p
+      div
 
-      <div class="card">
-        <h3>Manutenção e suporte</h3>
-        <p>Atualizações, ajustes, troca de imagens, melhorias e acompanhamento para manter sua presença digital sempre ativa e profissional.</p>
-      </div>
-    </div>
-  </div>
-</section>
+      div class=card
+        h3Manutenção e suporteh3
+        pAtualizações, ajustes, troca de imagens, melhorias e acompanhamento para manter sua presença digital sempre ativa e profissional.p
+      div
+    div
+  div
+section
 
-<section id="quem-somos">
-  <div class="container">
-    <h2 class="section-title">Quem <span>somos</span></h2>
-    <p class="section-desc">
+section id=portfolio
+  div class=container
+    h2 class=section-titleModelos que spanimpressionamspanh2
+    p class=section-desc
+      Veja alguns exemplos de páginas, sites, cartões e projetos desenvolvidos pela Contempla Digital.
+    p
+
+    div class=carousel
+      div class=slides id=slides
+        a href=httpslink-do-cliente-1.com target=_blank
+          img src=imgfoto1.png alt=Projeto 1
+        a
+
+        a href=httpslink-do-cliente-2.com target=_blank
+          img src=imgfoto2.png alt=Projeto 2
+        a
+
+        a href=httpslink-do-cliente-3.com target=_blank
+          img src=imgfoto3.png alt=Projeto 3
+        a
+
+        a href=httpslink-do-cliente-4.com target=_blank
+          img src=imgfoto4.png alt=Projeto 4
+        a
+      div
+
+      button class=prev onclick=mudarSlide(-1)❮button
+      button class=next onclick=mudarSlide(1)❯button
+    div
+  div
+section
+
+section id=quem-somos
+  div class=container
+    h2 class=section-titleQuem spansomosspanh2
+    p class=section-desc
       A Contempla Digital nasceu para aproximar pequenos negócios da tecnologia, oferecendo sites, páginas digitais e soluções NFC com visual moderno e estratégia de venda.
-    </p>
+    p
 
-    <div class="about-grid">
-      <div class="about-box">
-        <h3>Contempla Digital</h3>
-        <p>
+    div class=about-grid
+      div class=about-box
+        h3Contempla Digitalh3
+        p
           Somos uma empresa focada em criar presença digital para quem deseja ser visto com mais profissionalismo.
           Atendemos empreendedores individuais, profissionais autônomos e empresas que precisam de páginas bonitas,
           funcionais e preparadas para conversão.
-        </p>
-      </div>
+        p
+      div
 
-      <div class="about-box">
-        <h3>CEO — Selir Reis</h3>
-        <p>
+      div class=about-box
+        h3CEO — Selir Reish3
+        p
           Selir Reis é o fundador da Contempla Digital, responsável pela criação, estratégia e desenvolvimento das soluções.
           A proposta da marca é unir design, tecnologia e praticidade para entregar páginas digitais e cartões inteligentes
           com alto impacto visual e uso simples no dia a dia.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+        p
+      div
+    div
+  div
+section
 
-<section>
-  <div class="container">
-    <h2 class="section-title">Missão, visão e <span>valores</span></h2>
+section
+  div class=container
+    h2 class=section-titleMissão, visão e spanvaloresspanh2
 
-    <div class="cards">
-      <div class="card">
-        <h3>Missão</h3>
-        <p>Facilitar o acesso de pequenos negócios à presença digital profissional, criando páginas, sites e cartões inteligentes que geram conexão com clientes.</p>
-      </div>
+    div class=cards
+      div class=card
+        h3Missãoh3
+        pFacilitar o acesso de pequenos negócios à presença digital profissional, criando páginas, sites e cartões inteligentes que geram conexão com clientes.p
+      div
 
-      <div class="card">
-        <h3>Visão</h3>
-        <p>Ser referência regional em soluções digitais simples, modernas e acessíveis para empreendedores, empresas locais e profissionais autônomos.</p>
-      </div>
+      div class=card
+        h3Visãoh3
+        pSer referência regional em soluções digitais simples, modernas e acessíveis para empreendedores, empresas locais e profissionais autônomos.p
+      div
 
-      <div class="card">
-        <h3>Valores</h3>
-        <p>Profissionalismo, inovação, clareza, compromisso, criatividade, atendimento próximo e foco em resultado para o cliente.</p>
-      </div>
+      div class=card
+        h3Valoresh3
+        pProfissionalismo, inovação, clareza, compromisso, criatividade, atendimento próximo e foco em resultado para o cliente.p
+      div
 
-      <div class="card">
-        <h3>Diferencial</h3>
-        <p>Unimos site, página digital, QR Code e NFC em uma experiência única, prática e comercialmente forte.</p>
-      </div>
-    </div>
-  </div>
-</section>
+      div class=card
+        h3Diferencialh3
+        pUnimos site, página digital, QR Code e NFC em uma experiência única, prática e comercialmente forte.p
+      div
+    div
+  div
+section
 
-<section id="planos">
-  <div class="container">
-    <h2 class="section-title">Planos <span>Contempla</span></h2>
-    <p class="section-desc">
-      Valores pensados para facilitar a entrada do cliente e gerar relacionamento recorrente com manutenção, suporte e presença digital ativa.
-    </p>
-
-    <div class="plans">
-      <div class="plan">
-        <h3>Essencial</h3>
-        <p>Para empreendedores individuais, autônomos e prestadores de serviço.</p>
-        <div class="price">R$ 800</div>
-        <span class="monthly">+ R$ 39/mês de suporte</span>
-        <ul>
-          <li>Página profissional personalizada</li>
-          <li>Cartão de visitas digital</li>
-          <li>Botão direto para WhatsApp</li>
-          <li>Links para redes sociais</li>
-          <li>Estrutura ideal para personal trainer, pedreiro, faxineira, manicure e autônomos</li>
-        </ul>
-        <a class="btn" href="https://wa.me/5554996900019" target="_blank">Quero o Essencial</a>
-      </div>
-
-      <div class="plan featured">
-        <h3>Profissional</h3>
-        <p>Para empresas de pequeno porte que querem presença digital mais completa.</p>
-        <div class="price">R$ 1.200</div>
-        <span class="monthly">+ R$ 59/mês de suporte</span>
-        <ul>
-          <li>Site institucional completo</li>
-          <li>Carrossel de imagens</li>
-          <li>Serviços, história e diferenciais</li>
-          <li>Botões para WhatsApp, Instagram e Google</li>
-          <li>Ideal para barbearia, salão de beleza, comércio local e pequenas empresas</li>
-        </ul>
-        <a class="btn btn-pink" href="https://wa.me/5554996900019" target="_blank">Mais escolhido</a>
-      </div>
-
-      <div class="plan">
-        <h3>Premium</h3>
-        <p>Para clientes que querem mais recursos, prioridade e acompanhamento recorrente.</p>
-        <div class="price">R$ 1.800</div>
-        <span class="monthly">+ R$ 89/mês de suporte prioritário</span>
-        <ul>
-          <li>Site completo com visual premium</li>
-          <li>Maior número de seções e recursos</li>
-          <li>Manutenção mais recorrente</li>
-          <li>Prioridade no atendimento</li>
-          <li>Indicado para empresas que desejam investir mais em imagem e conversão</li>
-        </ul>
-        <a class="btn" href="https://wa.me/5554996900019" target="_blank">Quero o Premium</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="produtos">
-  <div class="container">
-    <h2 class="section-title">Produtos físicos <span>NFC</span></h2>
-    <p class="section-desc">
+section id=produtos
+  div class=container
+    h2 class=section-titleProdutos físicos spanNFCspanh2
+    p class=section-desc
       Produtos inteligentes para conectar sua marca ao cliente em segundos. Basta aproximar o celular e acessar sua página, WhatsApp, catálogo ou redes sociais.
-    </p>
+    p
 
-    <div class="products">
-      <div class="product">
-        <div class="product-img">
-          <img src="img/cartao-visita.png" alt="Cartão ContemplaNFC">
-        </div>
-        <h3>Cartão ContemplaNFC</h3>
-        <p>Cartão inteligente com aproximação NFC e QR Code, ideal para substituir o cartão de visita tradicional com muito mais impacto.</p>
-      </div>
+    div class=products
+      div class=product
+        div class=product-img
+          img src=imgcartao-visita.png alt=Cartão ContemplaNFC
+        div
+        h3Cartão ContemplaNFCh3
+        pCartão inteligente com aproximação NFC e QR Code, ideal para substituir o cartão de visita tradicional com muito mais impacto.p
+      div
 
-      <div class="product">
-        <div class="product-img">
-          <img src="img/tag-nfc.png" alt="ContemplaTagNFC">
-        </div>
-        <h3>ContemplaTagNFC</h3>
-        <p>Tag NFC versátil para colar em balcões, mesas, embalagens, catálogos, recepções ou materiais de divulgação.</p>
-      </div>
+      div class=product
+        div class=product-img
+          img src=imgtag-nfc.png alt=ContemplaTagNFC
+        div
+        h3ContemplaTagNFCh3
+        pTag NFC versátil para colar em balcões, mesas, embalagens, catálogos, recepções ou materiais de divulgação.p
+      div
 
-      <div class="product">
-        <div class="product-img">
-          <img src="img/pulseira-nfc.png" alt="ContemplaPulseNFC">
-        </div>
-        <h3>ContemplaPulseNFC</h3>
-        <p>Pulseira NFC moderna para eventos, profissionais, atendimento presencial e ações promocionais com acesso rápido à presença digital.</p>
-      </div>
-    </div>
-  </div>
-</section>
+      div class=product
+        div class=product-img
+          img src=imgpulseira-nfc.png alt=ContemplaPulseNFC
+        div
+        h3ContemplaPulseNFCh3
+        pPulseira NFC moderna para eventos, profissionais, atendimento presencial e ações promocionais com acesso rápido à presença digital.p
+      div
+    div
+  div
+section
 
-<section>
-  <div class="container">
-    <h2 class="section-title">Modelos que <span>impressionam</span></h2>
-    <p class="section-desc">
-      Espaço para mostrar exemplos de páginas, cartões, artes, projetos entregues e demonstrações visuais para clientes.
-    </p>
+section id=planos
+  div class=container
+    h2 class=section-titlePlanos spanContemplaspanh2
+    p class=section-desc
+      Valores pensados para facilitar a entrada do cliente e gerar relacionamento recorrente com manutenção, suporte e presença digital ativa.
+    p
 
-    <div class="carousel">
-      <div class="slides" id="slides">
-        <img src="img/foto1.png" alt="Projeto 1">
-        <img src="img/foto2.png" alt="Projeto 2">
-        <img src="img/foto3.png" alt="Projeto 3">
-        <img src="img/foto4.png" alt="Projeto 4">
-      </div>
+    div class=plans
+      div class=plan
+        h3Essencialh3
+        pPara empreendedores individuais, autônomos e prestadores de serviço.p
+        div class=priceR$ 800div
+        span class=monthly+ R$ 39mês de suportespan
+        ul
+          liPágina profissional personalizadali
+          liCartão de visitas digitalli
+          liBotão direto para WhatsAppli
+          liLinks para redes sociaisli
+          liIdeal para personal trainer, pedreiro, faxineira, manicure e autônomosli
+        ul
+        a class=btn href=httpswa.me5554996900019 target=_blankQuero o Essenciala
+      div
 
-      <button class="prev" onclick="mudarSlide(-1)">❮</button>
-      <button class="next" onclick="mudarSlide(1)">❯</button>
-    </div>
-  </div>
-</section>
+      div class=plan featured
+        h3Profissionalh3
+        pPara empresas de pequeno porte que querem presença digital mais completa.p
+        div class=priceR$ 1.200div
+        span class=monthly+ R$ 59mês de suportespan
+        ul
+          liSite institucional completoli
+          liCarrossel de imagensli
+          liServiços, história e diferenciaisli
+          liBotões para WhatsApp, Instagram e Googleli
+          liIdeal para barbearia, salão de beleza, comércio local e pequenas empresasli
+        ul
+        a class=btn btn-pink href=httpswa.me5554996900019 target=_blankMais escolhidoa
+      div
 
-<section>
-  <div class="container cta-final">
-    <h2>Pronto para transformar sua presença digital?</h2>
-    <p>
+      div class=plan
+        h3Premiumh3
+        pPara clientes que querem mais recursos, prioridade e acompanhamento recorrente.p
+        div class=priceR$ 1.800div
+        span class=monthly+ R$ 89mês de suporte prioritáriospan
+        ul
+          liSite completo com visual premiumli
+          liMaior número de seções e recursosli
+          liManutenção mais recorrenteli
+          liPrioridade no atendimentoli
+          liIndicado para empresas que desejam investir mais em imagem e conversãoli
+        ul
+        a class=btn href=httpswa.me5554996900019 target=_blankQuero o Premiuma
+      div
+    div
+  div
+section
+
+section
+  div class=container cta-final
+    h2Pronto para transformar sua presença digitalh2
+    p
       Seu cliente precisa encontrar sua empresa com facilidade. A Contempla Digital cria sua página, organiza sua apresentação e conecta tudo em um só lugar.
-    </p>
+    p
 
-    <div class="btn-area">
-      <a class="btn" href="https://wa.me/5554996900019" target="_blank">Solicitar orçamento</a>
-      <a class="btn btn-pink" href="https://www.instagram.com/" target="_blank">Ver Instagram</a>
-    </div>
-  </div>
-</section>
+    div class=btn-area
+      a class=btn href=httpswa.me5554996900019 target=_blankSolicitar orçamentoa
+      a class=btn btn-pink href=#portfolioVer projetosa
+    div
+  div
+section
 
-<footer>
-  <p>© 2026 Contempla Digital - Sites • Páginas • Cartões Inteligentes</p>
-  <p>Sua presença digital em um toque.</p>
-</footer>
+footer
+  p© 2026 Contempla Digital - Sites • Páginas • Cartões Inteligentesp
+  pSua presença digital em um toque.p
+footer
 
-<a class="whatsapp-fixo" href="https://wa.me/5554996900019" target="_blank">
-  WhatsApp
-</a>
+a class=whatsapp-fixo href=httpswa.me5554996900019 target=_blank
+  ☎
+a
 
-<script>
+script
   let slideAtual = 0;
 
   function mudarSlide(direcao) {
-    const slides = document.getElementById("slides");
+    const slides = document.getElementById(slides);
     const totalSlides = slides.children.length;
 
     slideAtual += direcao;
 
-    if (slideAtual < 0) slideAtual = totalSlides - 1;
-    if (slideAtual >= totalSlides) slideAtual = 0;
+    if (slideAtual  0) slideAtual = totalSlides - 1;
+    if (slideAtual = totalSlides) slideAtual = 0;
 
-    slides.style.transform = `translateX(-${slideAtual * 100}%)`;
+    slides.style.transform = `translateX(-${slideAtual  100}%)`;
   }
 
-  setInterval(() => {
+  setInterval(() = {
     mudarSlide(1);
   }, 4500);
-</script>
+script
 
-</body>
-</html>
+body
+html
