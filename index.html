@@ -18,7 +18,7 @@
     }
 
     body {
-      background: radial-gradient(circle at top, #111827, #050508 70%);
+      background: radial-gradient(circle at top, #101625, #050509 70%);
       color: #ffffff;
       line-height: 1.6;
       overflow-x: hidden;
@@ -29,333 +29,488 @@
       position: fixed;
       inset: 0;
       background:
-        linear-gradient(rgba(0, 209, 255, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 46, 136, 0.04) 1px, transparent 1px);
-      background-size: 40px 40px;
+        linear-gradient(rgba(0, 209, 255, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 46, 136, 0.045) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(255, 46, 136, .12), transparent 28%),
+        radial-gradient(circle at 80% 15%, rgba(0, 209, 255, .12), transparent 30%),
+        radial-gradient(circle at 50% 90%, rgba(138, 46, 255, .10), transparent 34%);
       pointer-events: none;
       z-index: -1;
     }
 
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
     header {
       min-height: 100vh;
-      background:
-        linear-gradient(rgba(0,0,0,0.62), rgba(0,0,0,0.75)),
-        url() center/cover no-repeat;
       display: flex;
       align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 30px;
+      padding: 80px 0 70px;
       position: relative;
     }
 
-    header::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      height: 120px;
-      background: linear-gradient(transparent, #050508);
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 55px;
+      align-items: center;
     }
 
-    .hero {
-      position: relative;
-      z-index: 2;
-      max-width: 900px;
-      animation: fadeInUp 1.2s ease forwards;
-    }
-
-    .logo-topo {
-      width: 180px;
-      max-width: 70%;
-      margin-bottom: 25px;
-      filter: drop-shadow(0 0 18px #00d1ff);
-    }
-
-    h1 {
-      font-size: clamp(2.4rem, 7vw, 5.8rem);
-      letter-spacing: 8px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-
-    .neon-text {
-      color: #ffffff;
-      text-shadow:
-        0 0 5px #00d1ff,
-        0 0 15px #00d1ff,
-        0 0 25px #8a2eff,
-        0 0 45px #ff2e88;
-    }
-
-    .neon-animado {
-      animation: neonPulse 2.8s infinite alternate;
-    }
-
-    @keyframes neonPulse {
-      0% {
-        text-shadow:
-          0 0 5px #00d1ff,
-          0 0 12px #00d1ff,
-          0 0 22px #8a2eff;
-      }
-
-      100% {
-        text-shadow:
-          0 0 10px #ff2e88,
-          0 0 22px #ff2e88,
-          0 0 42px #00d1ff;
-      }
-    }
-
-    .subtitulo {
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       color: #00d1ff;
-      letter-spacing: 12px;
-      font-size: 1.2rem;
-      margin-bottom: 18px;
-      text-transform: uppercase;
+      border: 1px solid rgba(0, 209, 255, .35);
+      background: rgba(0, 209, 255, .08);
+      padding: 9px 16px;
+      border-radius: 999px;
+      box-shadow: 0 0 18px rgba(0, 209, 255, .18);
+      font-size: .9rem;
+      margin-bottom: 22px;
     }
 
-    .linha-neon {
-      width: 160px;
-      height: 2px;
-      background: linear-gradient(90deg, #00d1ff, #8a2eff, #ff2e88);
-      margin: 22px auto;
-      box-shadow: 0 0 18px #00d1ff;
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      line-height: 1.04;
+      letter-spacing: -2px;
+      margin-bottom: 22px;
     }
 
-    header p {
-      font-size: 1.15rem;
-      max-width: 760px;
-      margin: 0 auto 28px;
-      color: #d8eaff;
+    .hero h1 span {
+      background: linear-gradient(90deg, #00d1ff, #ffffff, #ff2e88);
+      -webkit-background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 30px rgba(0, 209, 255, .18);
+    }
+
+    .hero p {
+      color: #d6e2f0;
+      font-size: 1.18rem;
+      max-width: 650px;
+      margin-bottom: 30px;
     }
 
     .btn-area {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
-      gap: 14px;
+      gap: 15px;
       margin-top: 28px;
     }
 
-    .btn-neon {
-      display: inline-block;
-      padding: 14px 28px;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 14px 26px;
       border-radius: 999px;
       text-decoration: none;
-      color: #ffffff;
-      border: 1px solid #00d1ff;
-      background: rgba(0, 209, 255, 0.08);
-      box-shadow: 0 0 12px rgba(0,209,255,.8);
-      transition: 0.3s ease;
-      font-weight: bold;
+      color: white;
+      font-weight: 700;
+      border: 1px solid rgba(0, 209, 255, .75);
+      background: rgba(0, 209, 255, .08);
+      box-shadow: 0 0 18px rgba(0, 209, 255, .35);
+      transition: .3s ease;
     }
 
-    .btn-neon:hover {
-      background: #00d1ff;
-      color: #050508;
+    .btn:hover {
       transform: translateY(-4px);
-      box-shadow: 0 0 25px #00d1ff, 0 0 50px #ff2e88;
+      background: #00d1ff;
+      color: #050509;
+      box-shadow: 0 0 28px rgba(0, 209, 255, .75), 0 0 50px rgba(255, 46, 136, .25);
     }
 
     .btn-pink {
-      border-color: #ff2e88;
-      background: rgba(255,46,136,.08);
-      box-shadow: 0 0 12px rgba(255,46,136,.8);
+      border-color: rgba(255, 46, 136, .75);
+      background: rgba(255, 46, 136, .08);
+      box-shadow: 0 0 18px rgba(255, 46, 136, .35);
     }
 
     .btn-pink:hover {
       background: #ff2e88;
-      box-shadow: 0 0 25px #ff2e88, 0 0 50px #8a2eff;
+      color: white;
+      box-shadow: 0 0 28px rgba(255, 46, 136, .75), 0 0 50px rgba(0, 209, 255, .25);
+    }
+
+    .hero-card {
+      position: relative;
+      padding: 18px;
+      border-radius: 30px;
+      background: linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+      border: 1px solid rgba(0, 209, 255, .28);
+      box-shadow:
+        0 0 35px rgba(0, 209, 255, .20),
+        0 0 70px rgba(255, 46, 136, .12);
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      background: linear-gradient(120deg, transparent, rgba(0,209,255,.22), transparent, rgba(255,46,136,.22), transparent);
+      opacity: .75;
+      filter: blur(18px);
+      z-index: 0;
+    }
+
+    .hero-card img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      display: block;
+      border-radius: 22px;
+      box-shadow: 0 0 28px rgba(0, 209, 255, .25);
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .metric {
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.045);
+      border-radius: 18px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .metric strong {
+      color: #00d1ff;
+      font-size: 1.4rem;
+      display: block;
+    }
+
+    .metric span {
+      color: #b9c7d8;
+      font-size: .88rem;
     }
 
     section {
-      padding: 80px 20px;
-      max-width: 1150px;
-      margin: auto;
+      padding: 90px 0;
     }
 
-    h2 {
+    .section-title {
       text-align: center;
-      font-size: clamp(2rem, 5vw, 3.4rem);
       margin-bottom: 18px;
-      text-transform: uppercase;
-      letter-spacing: 3px;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.1;
+      letter-spacing: -1px;
+    }
+
+    .section-title span {
+      color: #00d1ff;
+      text-shadow: 0 0 22px rgba(0, 209, 255, .65);
     }
 
     .section-desc {
-      max-width: 750px;
-      margin: 0 auto 45px;
+      max-width: 760px;
+      margin: 0 auto 46px;
       text-align: center;
       color: #b9c7d8;
-      font-size: 1.05rem;
+      font-size: 1.06rem;
     }
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 22px;
     }
 
     .card {
+      min-height: 235px;
       background: linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.025));
-      border: 1px solid rgba(0,209,255,.28);
+      border: 1px solid rgba(0,209,255,.25);
       padding: 28px;
-      border-radius: 22px;
-      box-shadow: 0 0 24px rgba(0,209,255,.12);
-      backdrop-filter: blur(8px);
-      transition: 0.35s ease;
+      border-radius: 24px;
+      box-shadow: 0 0 24px rgba(0,209,255,.10);
+      transition: .35s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      right: -45px;
+      top: -45px;
+      background: radial-gradient(circle, rgba(255,46,136,.22), transparent 70%);
     }
 
     .card:hover {
       transform: translateY(-8px);
-      border-color: #ff2e88;
-      box-shadow: 0 0 28px rgba(255,46,136,.35);
+      border-color: rgba(255,46,136,.65);
+      box-shadow: 0 0 32px rgba(255,46,136,.24);
     }
 
     .card h3 {
       color: #00d1ff;
-      margin-bottom: 12px;
-      font-size: 1.35rem;
+      font-size: 1.25rem;
+      margin-bottom: 14px;
     }
 
     .card p {
       color: #d7deea;
     }
 
-    .destaque {
-      background: linear-gradient(135deg, rgba(0,209,255,.10), rgba(255,46,136,.10));
-      border-radius: 28px;
-      border: 1px solid rgba(255,255,255,.12);
-      padding: 38px;
-      box-shadow: 0 0 35px rgba(138,46,255,.18);
+    .feature {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 40px;
+      align-items: center;
+      padding: 42px;
+      border-radius: 32px;
+      background: linear-gradient(135deg, rgba(0,209,255,.09), rgba(255,46,136,.08));
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: 0 0 42px rgba(138,46,255,.14);
     }
 
-    .img-glow {
-      width: 100%;
-      max-width: 900px;
-      display: block;
-      margin: 0 auto;
-      border-radius: 24px;
-      box-shadow:
-        0 0 25px rgba(0, 209, 255, 0.45),
-        0 0 55px rgba(255, 46, 136, 0.25);
-      transition: 0.4s ease;
+    .feature h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.05;
+      margin-bottom: 18px;
     }
 
-    .img-glow:hover {
-      transform: scale(1.025);
-      box-shadow:
-        0 0 35px #00d1ff,
-        0 0 75px rgba(255, 46, 136, 0.6);
+    .feature p {
+      color: #d6e2f0;
+      margin-bottom: 18px;
+    }
+
+    .feature ul {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      color: #d7deea;
+    }
+
+    .feature li::before {
+      content: "✦";
+      color: #ff2e88;
+      margin-right: 10px;
     }
 
     .carousel {
       position: relative;
-      max-width: 950px;
+      max-width: 1120px;
       margin: auto;
       overflow: hidden;
-      border-radius: 24px;
+      border-radius: 32px;
       border: 1px solid rgba(0,209,255,.35);
-      box-shadow: 0 0 35px rgba(0,209,255,.22);
+      box-shadow:
+        0 0 35px rgba(0,209,255,.22),
+        0 0 65px rgba(255,46,136,.10);
+      background: rgba(255,255,255,.04);
     }
 
     .slides {
       display: flex;
-      transition: transform .5s ease;
+      transition: transform .55s ease;
     }
 
     .slides img {
       width: 100%;
       min-width: 100%;
-      height: 460px;
+      height: 640px;
       object-fit: cover;
+      display: block;
     }
 
     .carousel button {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(0,0,0,.55);
+      width: 54px;
+      height: 54px;
+      background: rgba(0,0,0,.58);
       color: white;
       border: 1px solid #00d1ff;
       font-size: 28px;
-      padding: 12px 16px;
       cursor: pointer;
       border-radius: 50%;
-      box-shadow: 0 0 15px #00d1ff;
+      box-shadow: 0 0 16px #00d1ff;
+      transition: .25s ease;
     }
 
-    .prev { left: 15px; }
-    .next { right: 15px; }
-
-    .avaliacao h3 {
-      color: #ff2e88;
+    .carousel button:hover {
+      background: #00d1ff;
+      color: #050509;
     }
 
-    .mapa iframe {
-      width: 100%;
-      height: 360px;
-      border: 0;
-      border-radius: 24px;
-      box-shadow: 0 0 28px rgba(0,209,255,.22);
+    .prev { left: 18px; }
+    .next { right: 18px; }
+
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
     }
 
-    .redes {
+    .plan {
+      background: linear-gradient(145deg, rgba(255,255,255,.09), rgba(255,255,255,.025));
+      border: 1px solid rgba(0,209,255,.25);
+      border-radius: 26px;
+      padding: 32px;
+      box-shadow: 0 0 24px rgba(0,209,255,.10);
+    }
+
+    .plan.featured {
+      border-color: rgba(255,46,136,.65);
+      transform: scale(1.03);
+      box-shadow: 0 0 38px rgba(255,46,136,.24);
+    }
+
+    .plan h3 {
+      color: #ffffff;
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+
+    .plan .tag {
+      color: #00d1ff;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .plan ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      color: #d7deea;
+      margin: 20px 0 26px;
+    }
+
+    .plan li::before {
+      content: "✓";
+      color: #00d1ff;
+      margin-right: 10px;
+      font-weight: bold;
+    }
+
+    .cta-final {
       text-align: center;
+      padding: 60px 30px;
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at top left, rgba(0,209,255,.18), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(255,46,136,.18), transparent 35%),
+        rgba(255,255,255,.045);
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 0 45px rgba(0,209,255,.14);
+    }
+
+    .cta-final h2 {
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: 1.08;
+      margin-bottom: 18px;
+    }
+
+    .cta-final p {
+      max-width: 720px;
+      margin: 0 auto 28px;
+      color: #d6e2f0;
+      font-size: 1.1rem;
     }
 
     footer {
-      background: #030305;
-      color: #b9c7d8;
+      padding: 38px 20px;
       text-align: center;
-      padding: 35px 20px;
-      border-top: 1px solid rgba(0,209,255,.25);
+      color: #9fb0c4;
+      border-top: 1px solid rgba(0,209,255,.18);
+      background: rgba(0,0,0,.25);
     }
 
     .whatsapp-fixo {
       position: fixed;
-      right: 18px;
-      bottom: 18px;
+      right: 20px;
+      bottom: 20px;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
       background: linear-gradient(135deg, #00d1ff, #ff2e88);
       color: white;
-      padding: 15px 19px;
-      border-radius: 999px;
-      font-weight: bold;
       text-decoration: none;
-      box-shadow: 0 0 25px rgba(0,209,255,.8);
-      z-index: 999;
+      padding: 15px 20px;
+      border-radius: 999px;
+      font-weight: 800;
+      box-shadow:
+        0 0 22px rgba(0, 209, 255, .75),
+        0 0 42px rgba(255, 46, 136, .35);
+      animation: pulseWhats 1.8s infinite alternate;
     }
 
-    .fade-in {
-      opacity: 0;
-      transform: translateY(35px);
-      animation: fadeInUp 1s ease forwards;
+    @keyframes pulseWhats {
+      from { transform: translateY(0); }
+      to { transform: translateY(-5px); }
     }
 
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
+    @media (max-width: 980px) {
+      .hero-grid,
+      .feature {
+        grid-template-columns: 1fr;
+      }
+
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .plans {
+        grid-template-columns: 1fr;
+      }
+
+      .plan.featured {
+        transform: none;
+      }
+
+      .slides img {
+        height: 440px;
       }
     }
 
-    @media (max-width: 768px) {
-      h1 {
-        letter-spacing: 3px;
+    @media (max-width: 600px) {
+      header {
+        padding-top: 55px;
       }
 
-      .subtitulo {
-        letter-spacing: 7px;
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .metrics {
+        grid-template-columns: 1fr;
       }
 
       .slides img {
         height: 300px;
       }
 
-      .destaque {
-        padding: 25px;
+      .hero-card {
+        padding: 10px;
+      }
+
+      .whatsapp-fixo {
+        right: 14px;
+        bottom: 14px;
+        padding: 13px 16px;
+        font-size: .9rem;
       }
     }
   </style>
@@ -364,154 +519,188 @@
 <body>
 
 <header>
-  <div class="hero">
-    <h1 class="neon-text neon-animado">Contempla</h1>
-    <div class="subtitulo">Digital</div>
-    <div class="linha-neon"></div>
-    <p>
-      Sites modernos, páginas personalizadas e cartões inteligentes para conectar sua empresa aos seus clientes.
-    </p>
+  <div class="container hero-grid">
+    <div class="hero">
+      <div class="badge">✦ Sites • Páginas • Cartões Inteligentes</div>
 
-    <div class="btn-area">
-      <a class="btn-neon" href="https://wa.me/5554996900019" target="_blank">Falar no WhatsApp</a>
-      <a class="btn-neon btn-pink" href="#servicos">Conhecer serviços</a>
+      <h1>
+        Sua empresa com uma <span>presença digital premium</span>
+      </h1>
+
+      <p>
+        Criamos soluções visuais, modernas e funcionais para empresas que querem aparecer melhor,
+        transmitir profissionalismo e facilitar o contato com seus clientes.
+      </p>
+
+      <div class="btn-area">
+        <a class="btn" href="https://wa.me/5554999999999" target="_blank">Falar no WhatsApp</a>
+        <a class="btn btn-pink" href="#servicos">Conhecer serviços</a>
+      </div>
+
+      <div class="metrics">
+        <div class="metric">
+          <strong>Site</strong>
+          <span>moderno e responsivo</span>
+        </div>
+
+        <div class="metric">
+          <strong>NFC</strong>
+          <span>conexão em um toque</span>
+        </div>
+
+        <div class="metric">
+          <strong>QR Code</strong>
+          <span>acesso rápido</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <img src="img/logo-cyberpunk.png" alt="Contempla Digital">
     </div>
   </div>
 </header>
 
-<section class="fade-in">
-  <h2 class="neon-text">Presença Digital Premium</h2>
-  <p class="section-desc">
-    Criamos soluções visuais, modernas e funcionais para empresas que querem aparecer melhor,
-    transmitir profissionalismo e facilitar o contato com seus clientes.
-  </p>
-
-  <img src="img/logo-cyberpunk.png" alt="Contempla Digital" class="img-glow">
-</section>
-
 <section id="servicos">
-  <h2 class="neon-text">Serviços</h2>
-  <p class="section-desc">
-    Soluções pensadas para pequenos negócios, profissionais autônomos e empresas que desejam se destacar.
-  </p>
+  <div class="container">
+    <h2 class="section-title">Soluções para <span>negócios modernos</span></h2>
+    <p class="section-desc">
+      Um conjunto de ferramentas digitais para apresentar sua marca, facilitar o contato e transformar curiosos em clientes.
+    </p>
 
-  <div class="cards">
-    <div class="card">
-      <h3>Sites Modernos</h3>
-      <p>Sites institucionais rápidos, bonitos e responsivos, prontos para apresentar sua empresa com autoridade.</p>
-    </div>
-
-    <div class="card">
-      <h3>Páginas Personalizadas</h3>
-      <p>Landing pages e páginas digitais para divulgar serviços, produtos, redes sociais e formas de contato.</p>
-    </div>
-
-    <div class="card">
-      <h3>Cartões Inteligentes</h3>
-      <p>Cartões NFC e QR Code que direcionam seus clientes para sua página, WhatsApp, redes sociais e localização.</p>
-    </div>
-
-    <div class="card">
-      <h3>Presença Digital</h3>
-      <p>Organização visual da sua marca para passar mais confiança, profissionalismo e facilitar conversões.</p>
-    </div>
-  </div>
-</section>
-
-<section>
-  <h2 class="neon-text">Modelo para Clientes</h2>
-  <p class="section-desc">
-    Este espaço pode ser usado para mostrar exemplos de sites, fachadas, produtos ou serviços de clientes.
-  </p>
-
-  <div class="carousel">
-    <div class="slides" id="slides">
-      <img src="img/foto1.png" alt="Foto 1">
-      <img src="img/foto2.png" alt="Foto 2">
-      <img src="img/foto3.png" alt="Foto 3">
-      <img src="img/foto4.png" alt="Foto 4">
-    </div>
-
-    <button class="prev" onclick="mudarSlide(-1)">❮</button>
-    <button class="next" onclick="mudarSlide(1)">❯</button>
-  </div>
-</section>
-
-<section>
-  <h2 class="neon-text">Como Funciona</h2>
-
-  <div class="destaque">
     <div class="cards">
       <div class="card">
-        <h3>1. Entendimento</h3>
-        <p>Você informa o tipo de negócio, fotos, endereço, WhatsApp, redes sociais e objetivo da página.</p>
+        <h3>Sites modernos</h3>
+        <p>Sites institucionais rápidos, bonitos e responsivos para sua empresa transmitir confiança desde o primeiro clique.</p>
       </div>
 
       <div class="card">
-        <h3>2. Criação</h3>
-        <p>Montamos a página com visual profissional, botões de contato, localização e identidade personalizada.</p>
+        <h3>Páginas personalizadas</h3>
+        <p>Landing pages e páginas digitais para divulgar serviços, produtos, redes sociais e formas de contato.</p>
       </div>
 
       <div class="card">
-        <h3>3. Publicação</h3>
-        <p>O site vai ao ar e pode ser usado em cartão NFC, QR Code, Instagram, WhatsApp e Google.</p>
+        <h3>Cartões inteligentes</h3>
+        <p>Cartões NFC e QR Code que direcionam seus clientes para sua página, WhatsApp, redes sociais e localização.</p>
+      </div>
+
+      <div class="card">
+        <h3>Presença digital</h3>
+        <p>Organização visual da marca para passar mais confiança, profissionalismo e facilitar conversões.</p>
       </div>
     </div>
   </div>
 </section>
 
 <section>
-  <h2 class="neon-text">Avaliações</h2>
-
-  <div class="cards">
-    <div class="card avaliacao">
-      <h3>★★★★★</h3>
-      <p>“Visual moderno, atendimento rápido e resultado muito profissional.”</p>
-      <strong>- Cliente</strong>
+  <div class="container feature">
+    <div>
+      <h2>Mais que um site. Uma vitrine digital.</h2>
+      <p>
+        A Contempla Digital cria páginas estratégicas para quem quer ser encontrado, ser lembrado e facilitar o contato com clientes.
+      </p>
+      <p>
+        Ideal para pequenos negócios, profissionais autônomos, prestadores de serviço, lojas, clínicas, salões, restaurantes e empresas locais.
+      </p>
     </div>
 
-    <div class="card avaliacao">
-      <h3>★★★★★</h3>
-      <p>“Agora meus clientes conseguem encontrar tudo em uma única página.”</p>
-      <strong>- Cliente</strong>
-    </div>
-
-    <div class="card avaliacao">
-      <h3>★★★★★</h3>
-      <p>“O cartão inteligente chamou muita atenção e facilitou meus contatos.”</p>
-      <strong>- Cliente</strong>
+    <div>
+      <ul>
+        <li>Botão direto para WhatsApp.</li>
+        <li>Integração com Instagram, Facebook e TikTok.</li>
+        <li>Galeria de fotos e vídeos.</li>
+        <li>Mapa, rota e dados de contato quando necessário.</li>
+        <li>Uso em cartão NFC, QR Code e bio do Instagram.</li>
+      </ul>
     </div>
   </div>
 </section>
 
-<section class="redes">
-  <h2 class="neon-text">Redes Sociais</h2>
-  <p class="section-desc">Acompanhe a Contempla Digital e conheça nossos projetos.</p>
+<section>
+  <div class="container">
+    <h2 class="section-title">Modelos que <span>impressionam</span></h2>
+    <p class="section-desc">
+      Mostre imagens, projetos, cartões, páginas criadas ou exemplos de clientes em um carrossel maior e mais visual.
+    </p>
 
-  <a class="btn-neon" href="https://www.instagram.com/" target="_blank">Instagram</a>
-  <a class="btn-neon btn-pink" href="https://www.facebook.com/" target="_blank">Facebook</a>
-  <a class="btn-neon" href="https://www.tiktok.com/" target="_blank">TikTok</a>
+    <div class="carousel">
+      <div class="slides" id="slides">
+        <img src="img/foto1.png" alt="Projeto 1">
+        <img src="img/foto2.png" alt="Projeto 2">
+        <img src="img/foto3.png" alt="Projeto 3">
+        <img src="img/foto4.png" alt="Projeto 4">
+      </div>
+
+      <button class="prev" onclick="mudarSlide(-1)">❮</button>
+      <button class="next" onclick="mudarSlide(1)">❯</button>
+    </div>
+  </div>
 </section>
 
-<section id="localizacao" class="mapa">
-  <h2 class="neon-text">Localização</h2>
+<section>
+  <div class="container">
+    <h2 class="section-title">Planos para <span>começar</span></h2>
+    <p class="section-desc">
+      Pacotes simples, objetivos e pensados para empresas que querem aparecer melhor sem complicação.
+    </p>
 
-  <iframe 
-    src="https://www.google.com/maps?q=Garibaldi%20RS&output=embed"
-    allowfullscreen=""
-    loading="lazy">
-  </iframe>
+    <div class="plans">
+      <div class="plan">
+        <h3>Essencial</h3>
+        <span class="tag">Página digital simples</span>
+        <ul>
+          <li>Apresentação da empresa</li>
+          <li>Botão WhatsApp</li>
+          <li>Redes sociais</li>
+          <li>Layout responsivo</li>
+        </ul>
+        <a class="btn" href="https://wa.me/5554999999999" target="_blank">Quero esse</a>
+      </div>
 
-  <div style="text-align:center; margin-top:25px;">
-    <a class="btn-neon btn-pink" href="https://www.google.com/maps/dir/?api=1&destination=Garibaldi%20RS" target="_blank">
-      Traçar rota
-    </a>
+      <div class="plan featured">
+        <h3>Profissional</h3>
+        <span class="tag">Site completo</span>
+        <ul>
+          <li>Todas as seções principais</li>
+          <li>Carrossel de imagens</li>
+          <li>Galeria e avaliações</li>
+          <li>Otimizado para conversão</li>
+        </ul>
+        <a class="btn btn-pink" href="https://wa.me/5554999999999" target="_blank">Mais escolhido</a>
+      </div>
+
+      <div class="plan">
+        <h3>Premium NFC</h3>
+        <span class="tag">Site + cartão inteligente</span>
+        <ul>
+          <li>Site ou página digital</li>
+          <li>Cartão NFC personalizado</li>
+          <li>QR Code de acesso</li>
+          <li>Presença digital completa</li>
+        </ul>
+        <a class="btn" href="https://wa.me/5554999999999" target="_blank">Quero premium</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container cta-final">
+    <h2>Pronto para transformar sua presença digital?</h2>
+    <p>
+      Seu cliente precisa encontrar sua empresa com facilidade. Nós criamos a página, organizamos sua apresentação e conectamos tudo em um só lugar.
+    </p>
+
+    <div class="btn-area" style="justify-content:center;">
+      <a class="btn" href="https://wa.me/5554999999999" target="_blank">Solicitar orçamento</a>
+      <a class="btn btn-pink" href="#servicos">Ver serviços</a>
+    </div>
   </div>
 </section>
 
 <footer>
-  <p>© 2026 Contempla Digital - Todos os direitos reservados.</p>
-  <p>Sites • Páginas • Cartões Inteligentes</p>
+  <p>© 2026 Contempla Digital - Sites • Páginas • Cartões Inteligentes</p>
+  <p>Sua presença digital em um toque.</p>
 </footer>
 
 <a class="whatsapp-fixo" href="https://wa.me/5554999999999" target="_blank">
@@ -540,7 +729,7 @@
 
   setInterval(() => {
     mudarSlide(1);
-  }, 4000);
+  }, 4500);
 </script>
 
 </body>
