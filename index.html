@@ -55,7 +55,7 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding: 50px 0 70px;
+      padding: 70px 0;
     }
 
     .hero {
@@ -63,9 +63,9 @@
     }
 
     .hero-logo {
-      width: min(1080px, 100%);
-      margin: 0 auto 38px;
-      padding: 16px;
+      width: min(980px, 100%);
+      margin: 0 auto 42px;
+      padding: 18px;
       border-radius: 32px;
       background: linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
       border: 1px solid rgba(0, 209, 255, .35);
@@ -176,55 +176,6 @@
       font-size: 1.08rem;
     }
 
-    .carousel {
-      position: relative;
-      max-width: 1120px;
-      margin: auto;
-      overflow: hidden;
-      border-radius: 32px;
-      border: 1px solid rgba(0,209,255,.35);
-      box-shadow:
-        0 0 35px rgba(0,209,255,.22),
-        0 0 65px rgba(255,46,136,.10);
-    }
-
-    .slides {
-      display: flex;
-      transition: transform .55s ease;
-    }
-
-    .slides a {
-      width: 100%;
-      min-width: 100%;
-      display: block;
-    }
-
-    .slides img {
-      width: 100%;
-      height: 640px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .carousel button {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 54px;
-      height: 54px;
-      background: rgba(0,0,0,.58);
-      color: white;
-      border: 1px solid #00d1ff;
-      font-size: 28px;
-      cursor: pointer;
-      border-radius: 50%;
-      box-shadow: 0 0 16px #00d1ff;
-      z-index: 10;
-    }
-
-    .prev { left: 18px; }
-    .next { right: 18px; }
-
     .cards {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -268,32 +219,6 @@
       margin-bottom: 14px;
     }
 
-    .products {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .product-img {
-      width: 100%;
-      height: 250px;
-      border-radius: 20px;
-      background: rgba(0,0,0,.35);
-      border: 1px dashed rgba(0,209,255,.45);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #7bdfff;
-      margin-bottom: 20px;
-      overflow: hidden;
-    }
-
-    .product-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
     .plans {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -335,6 +260,75 @@
       font-weight: bold;
     }
 
+    .products {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .product-img {
+      width: 100%;
+      height: 250px;
+      border-radius: 20px;
+      background: rgba(0,0,0,.35);
+      border: 1px dashed rgba(0,209,255,.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #7bdfff;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    .product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .carousel {
+      position: relative;
+      max-width: 1120px;
+      margin: auto;
+      overflow: hidden;
+      border-radius: 32px;
+      border: 1px solid rgba(0,209,255,.35);
+      box-shadow:
+        0 0 35px rgba(0,209,255,.22),
+        0 0 65px rgba(255,46,136,.10);
+    }
+
+    .slides {
+      display: flex;
+      transition: transform .55s ease;
+    }
+
+    .slides img {
+      width: 100%;
+      min-width: 100%;
+      height: 640px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .carousel button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 54px;
+      height: 54px;
+      background: rgba(0,0,0,.58);
+      color: white;
+      border: 1px solid #00d1ff;
+      font-size: 28px;
+      cursor: pointer;
+      border-radius: 50%;
+      box-shadow: 0 0 16px #00d1ff;
+    }
+
+    .prev { left: 18px; }
+    .next { right: 18px; }
+
     .cta-final {
       text-align: center;
       padding: 60px 30px;
@@ -363,22 +357,24 @@
 
     .whatsapp-fixo {
       position: fixed;
-      right: 18px;
-      bottom: 18px;
+      right: 20px;
+      bottom: 20px;
       z-index: 9999;
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
       background: linear-gradient(135deg, #00d1ff, #ff2e88);
       color: white;
       text-decoration: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
+      padding: 15px 20px;
+      border-radius: 999px;
+      font-weight: 900;
       box-shadow:
-        0 0 18px rgba(0, 209, 255, .55),
-        0 0 28px rgba(255, 46, 136, .25);
+        0 0 22px rgba(0, 209, 255, .75),
+        0 0 42px rgba(255, 46, 136, .35);
+      animation: pulseWhats 1.8s infinite alternate;
+    }
+
+    @keyframes pulseWhats {
+      from { transform: translateY(0); }
+      to { transform: translateY(-5px); }
     }
 
     @media (max-width: 980px) {
@@ -396,18 +392,8 @@
     }
 
     @media (max-width: 600px) {
-      header {
-        min-height: auto;
-        padding-top: 35px;
-      }
-
       .hero-logo {
-        padding: 8px;
-        border-radius: 22px;
-      }
-
-      .hero-logo img {
-        border-radius: 16px;
+        padding: 10px;
       }
 
       .slides img {
@@ -415,11 +401,10 @@
       }
 
       .whatsapp-fixo {
-        width: 46px;
-        height: 46px;
-        font-size: 21px;
-        right: 12px;
-        bottom: 12px;
+        right: 14px;
+        bottom: 14px;
+        padding: 13px 16px;
+        font-size: .9rem;
       }
     }
   </style>
@@ -430,7 +415,7 @@
 <header>
   <div class="container hero">
     <div class="hero-logo">
-      <img src="img/logo-principal.png" alt="Contempla Digital">
+      <img src="img/logo-cyberpunk.png" alt="Contempla Digital">
     </div>
 
     <div class="badge">Sites • Páginas profissionais • Cartões NFC • Presença digital</div>
@@ -445,6 +430,7 @@
     <div class="btn-area">
       <a class="btn" href="https://wa.me/5554996900019" target="_blank">Falar no WhatsApp</a>
       <a class="btn btn-pink" href="#servicos">Conhecer serviços</a>
+      <a class="btn" href="https://www.instagram.com/" target="_blank">Instagram</a>
       <a class="btn btn-pink" href="https://www.google.com/search?q=Contempla+Digital+avalia%C3%A7%C3%B5es" target="_blank">Avaliações Google</a>
     </div>
   </div>
@@ -478,38 +464,6 @@
         <h3>Manutenção e suporte</h3>
         <p>Atualizações, ajustes, troca de imagens, melhorias e acompanhamento para manter sua presença digital sempre ativa e profissional.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<section id="portfolio">
-  <div class="container">
-    <h2 class="section-title">Modelos que <span>impressionam</span></h2>
-    <p class="section-desc">
-      Veja alguns exemplos de páginas, sites, cartões e projetos desenvolvidos pela Contempla Digital.
-    </p>
-
-    <div class="carousel">
-      <div class="slides" id="slides">
-        <a href="https://link-do-cliente-1.com" target="_blank">
-          <img src="img/foto1.png" alt="Projeto 1">
-        </a>
-
-        <a href="https://link-do-cliente-2.com" target="_blank">
-          <img src="img/foto2.png" alt="Projeto 2">
-        </a>
-
-        <a href="https://link-do-cliente-3.com" target="_blank">
-          <img src="img/foto3.png" alt="Projeto 3">
-        </a>
-
-        <a href="https://link-do-cliente-4.com" target="_blank">
-          <img src="img/foto4.png" alt="Projeto 4">
-        </a>
-      </div>
-
-      <button class="prev" onclick="mudarSlide(-1)">❮</button>
-      <button class="next" onclick="mudarSlide(1)">❯</button>
     </div>
   </div>
 </section>
@@ -571,41 +525,6 @@
   </div>
 </section>
 
-<section id="produtos">
-  <div class="container">
-    <h2 class="section-title">Produtos físicos <span>NFC</span></h2>
-    <p class="section-desc">
-      Produtos inteligentes para conectar sua marca ao cliente em segundos. Basta aproximar o celular e acessar sua página, WhatsApp, catálogo ou redes sociais.
-    </p>
-
-    <div class="products">
-      <div class="product">
-        <div class="product-img">
-          <img src="img/cartao-visita.png" alt="Cartão ContemplaNFC">
-        </div>
-        <h3>Cartão ContemplaNFC</h3>
-        <p>Cartão inteligente com aproximação NFC e QR Code, ideal para substituir o cartão de visita tradicional com muito mais impacto.</p>
-      </div>
-
-      <div class="product">
-        <div class="product-img">
-          <img src="img/tag-nfc.png" alt="ContemplaTagNFC">
-        </div>
-        <h3>ContemplaTagNFC</h3>
-        <p>Tag NFC versátil para colar em balcões, mesas, embalagens, catálogos, recepções ou materiais de divulgação.</p>
-      </div>
-
-      <div class="product">
-        <div class="product-img">
-          <img src="img/pulseira-nfc.png" alt="ContemplaPulseNFC">
-        </div>
-        <h3>ContemplaPulseNFC</h3>
-        <p>Pulseira NFC moderna para eventos, profissionais, atendimento presencial e ações promocionais com acesso rápido à presença digital.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section id="planos">
   <div class="container">
     <h2 class="section-title">Planos <span>Contempla</span></h2>
@@ -624,7 +543,7 @@
           <li>Cartão de visitas digital</li>
           <li>Botão direto para WhatsApp</li>
           <li>Links para redes sociais</li>
-          <li>Ideal para personal trainer, pedreiro, faxineira, manicure e autônomos</li>
+          <li>Estrutura ideal para personal trainer, pedreiro, faxineira, manicure e autônomos</li>
         </ul>
         <a class="btn" href="https://wa.me/5554996900019" target="_blank">Quero o Essencial</a>
       </div>
@@ -662,6 +581,62 @@
   </div>
 </section>
 
+<section id="produtos">
+  <div class="container">
+    <h2 class="section-title">Produtos físicos <span>NFC</span></h2>
+    <p class="section-desc">
+      Produtos inteligentes para conectar sua marca ao cliente em segundos. Basta aproximar o celular e acessar sua página, WhatsApp, catálogo ou redes sociais.
+    </p>
+
+    <div class="products">
+      <div class="product">
+        <div class="product-img">
+          <img src="img/cartao-visita.png" alt="Cartão ContemplaNFC">
+        </div>
+        <h3>Cartão ContemplaNFC</h3>
+        <p>Cartão inteligente com aproximação NFC e QR Code, ideal para substituir o cartão de visita tradicional com muito mais impacto.</p>
+      </div>
+
+      <div class="product">
+        <div class="product-img">
+          <img src="img/tag-nfc.png" alt="ContemplaTagNFC">
+        </div>
+        <h3>ContemplaTagNFC</h3>
+        <p>Tag NFC versátil para colar em balcões, mesas, embalagens, catálogos, recepções ou materiais de divulgação.</p>
+      </div>
+
+      <div class="product">
+        <div class="product-img">
+          <img src="img/pulseira-nfc.png" alt="ContemplaPulseNFC">
+        </div>
+        <h3>ContemplaPulseNFC</h3>
+        <p>Pulseira NFC moderna para eventos, profissionais, atendimento presencial e ações promocionais com acesso rápido à presença digital.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">Modelos que <span>impressionam</span></h2>
+    <p class="section-desc">
+      Espaço para mostrar exemplos de páginas, cartões, artes, projetos entregues e demonstrações visuais para clientes.
+    </p>
+
+    <div class="carousel">
+      <div class="slides" id="slides">
+        <img src="img/foto1.png" alt="Projeto 1">
+        <img src="img/foto2.png" alt="Projeto 2">
+        <img src="img/foto3.png" alt="Projeto 3">
+        <img src="img/foto4.png" alt="Projeto 4">
+      </div>
+
+      <button class="prev" onclick="mudarSlide(-1)">❮</button>
+      <button class="next" onclick="mudarSlide(1)">❯</button>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="container cta-final">
     <h2>Pronto para transformar sua presença digital?</h2>
@@ -671,7 +646,7 @@
 
     <div class="btn-area">
       <a class="btn" href="https://wa.me/5554996900019" target="_blank">Solicitar orçamento</a>
-      <a class="btn btn-pink" href="#portfolio">Ver projetos</a>
+      <a class="btn btn-pink" href="https://www.instagram.com/" target="_blank">Ver Instagram</a>
     </div>
   </div>
 </section>
@@ -682,7 +657,7 @@
 </footer>
 
 <a class="whatsapp-fixo" href="https://wa.me/5554996900019" target="_blank">
-  ☎
+  WhatsApp
 </a>
 
 <script>
