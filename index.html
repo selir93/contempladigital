@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contempla Digital</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #111827, #050508 70%);
+      color: #ffffff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(rgba(0, 209, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 46, 136, 0.04) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    header {
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(0,0,0,0.62), rgba(0,0,0,0.75)),
+        url("img/logo-cyberpunk.png") center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px;
+      position: relative;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 120px;
+      background: linear-gradient(transparent, #050508);
+    }
+
+    .hero {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      animation: fadeInUp 1.2s ease forwards;
+    }
+
+    .logo-topo {
+      width: 180px;
+      max-width: 70%;
+      margin-bottom: 25px;
+      filter: drop-shadow(0 0 18px #00d1ff);
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 7vw, 5.8rem);
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .neon-text {
+      color: #ffffff;
+      text-shadow:
+        0 0 5px #00d1ff,
+        0 0 15px #00d1ff,
+        0 0 25px #8a2eff,
+        0 0 45px #ff2e88;
+    }
+
+    .neon-animado {
+      animation: neonPulse 2.8s infinite alternate;
+    }
+
+    @keyframes neonPulse {
+      0% {
+        text-shadow:
+          0 0 5px #00d1ff,
+          0 0 12px #00d1ff,
+          0 0 22px #8a2eff;
+      }
+
+      100% {
+        text-shadow:
+          0 0 10px #ff2e88,
+          0 0 22px #ff2e88,
+          0 0 42px #00d1ff;
+      }
+    }
+
+    .subtitulo {
+      color: #00d1ff;
+      letter-spacing: 12px;
+      font-size: 1.2rem;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+    }
+
+    .linha-neon {
+      width: 160px;
+      height: 2px;
+      background: linear-gradient(90deg, #00d1ff, #8a2eff, #ff2e88);
+      margin: 22px auto;
+      box-shadow: 0 0 18px #00d1ff;
+    }
+
+    header p {
+      font-size: 1.15rem;
+      max-width: 760px;
+      margin: 0 auto 28px;
+      color: #d8eaff;
+    }
+
+    .btn-area {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .btn-neon {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 999px;
+      text-decoration: none;
+      color: #ffffff;
+      border: 1px solid #00d1ff;
+      background: rgba(0, 209, 255, 0.08);
+      box-shadow: 0 0 12px rgba(0,209,255,.8);
+      transition: 0.3s ease;
+      font-weight: bold;
+    }
+
+    .btn-neon:hover {
+      background: #00d1ff;
+      color: #050508;
+      transform: translateY(-4px);
+      box-shadow: 0 0 25px #00d1ff, 0 0 50px #ff2e88;
+    }
+
+    .btn-pink {
+      border-color: #ff2e88;
+      background: rgba(255,46,136,.08);
+      box-shadow: 0 0 12px rgba(255,46,136,.8);
+    }
+
+    .btn-pink:hover {
+      background: #ff2e88;
+      box-shadow: 0 0 25px #ff2e88, 0 0 50px #8a2eff;
+    }
+
+    section {
+      padding: 80px 20px;
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      margin-bottom: 18px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+
+    .section-desc {
+      max-width: 750px;
+      margin: 0 auto 45px;
+      text-align: center;
+      color: #b9c7d8;
+      font-size: 1.05rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.025));
+      border: 1px solid rgba(0,209,255,.28);
+      padding: 28px;
+      border-radius: 22px;
+      box-shadow: 0 0 24px rgba(0,209,255,.12);
+      backdrop-filter: blur(8px);
+      transition: 0.35s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: #ff2e88;
+      box-shadow: 0 0 28px rgba(255,46,136,.35);
+    }
+
+    .card h3 {
+      color: #00d1ff;
+      margin-bottom: 12px;
+      font-size: 1.35rem;
+    }
+
+    .card p {
+      color: #d7deea;
+    }
+
+    .destaque {
+      background: linear-gradient(135deg, rgba(0,209,255,.10), rgba(255,46,136,.10));
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,.12);
+      padding: 38px;
+      box-shadow: 0 0 35px rgba(138,46,255,.18);
+    }
+
+    .img-glow {
+      width: 100%;
+      max-width: 900px;
+      display: block;
+      margin: 0 auto;
+      border-radius: 24px;
+      box-shadow:
+        0 0 25px rgba(0, 209, 255, 0.45),
+        0 0 55px rgba(255, 46, 136, 0.25);
+      transition: 0.4s ease;
+    }
+
+    .img-glow:hover {
+      transform: scale(1.025);
+      box-shadow:
+        0 0 35px #00d1ff,
+        0 0 75px rgba(255, 46, 136, 0.6);
+    }
+
+    .carousel {
+      position: relative;
+      max-width: 950px;
+      margin: auto;
+      overflow: hidden;
+      border-radius: 24px;
+      border: 1px solid rgba(0,209,255,.35);
+      box-shadow: 0 0 35px rgba(0,209,255,.22);
+    }
+
+    .slides {
+      display: flex;
+      transition: transform .5s ease;
+    }
+
+    .slides img {
+      width: 100%;
+      min-width: 100%;
+      height: 460px;
+      object-fit: cover;
+    }
+
+    .carousel button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,.55);
+      color: white;
+      border: 1px solid #00d1ff;
+      font-size: 28px;
+      padding: 12px 16px;
+      cursor: pointer;
+      border-radius: 50%;
+      box-shadow: 0 0 15px #00d1ff;
+    }
+
+    .prev { left: 15px; }
+    .next { right: 15px; }
+
+    .avaliacao h3 {
+      color: #ff2e88;
+    }
+
+    .mapa iframe {
+      width: 100%;
+      height: 360px;
+      border: 0;
+      border-radius: 24px;
+      box-shadow: 0 0 28px rgba(0,209,255,.22);
+    }
+
+    .redes {
+      text-align: center;
+    }
+
+    footer {
+      background: #030305;
+      color: #b9c7d8;
+      text-align: center;
+      padding: 35px 20px;
+      border-top: 1px solid rgba(0,209,255,.25);
+    }
+
+    .whatsapp-fixo {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      background: linear-gradient(135deg, #00d1ff, #ff2e88);
+      color: white;
+      padding: 15px 19px;
+      border-radius: 999px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 0 25px rgba(0,209,255,.8);
+      z-index: 999;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(35px);
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        letter-spacing: 3px;
+      }
+
+      .subtitulo {
+        letter-spacing: 7px;
+      }
+
+      .slides img {
+        height: 300px;
+      }
+
+      .destaque {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="hero">
+    <h1 class="neon-text neon-animado">Contempla</h1>
+    <div class="subtitulo">Digital</div>
+    <div class="linha-neon"></div>
+    <p>
+      Sites modernos, páginas personalizadas e cartões inteligentes para conectar sua empresa aos seus clientes.
+    </p>
+
+    <div class="btn-area">
+      <a class="btn-neon" href="https://wa.me/5554999999999" target="_blank">Falar no WhatsApp</a>
+      <a class="btn-neon btn-pink" href="#servicos">Conhecer serviços</a>
+    </div>
+  </div>
+</header>
+
+<section class="fade-in">
+  <h2 class="neon-text">Presença Digital Premium</h2>
+  <p class="section-desc">
+    Criamos soluções visuais, modernas e funcionais para empresas que querem aparecer melhor,
+    transmitir profissionalismo e facilitar o contato com seus clientes.
+  </p>
+
+  <img src="img/logo-cyberpunk.png" alt="Contempla Digital" class="img-glow">
+</section>
+
+<section id="servicos">
+  <h2 class="neon-text">Serviços</h2>
+  <p class="section-desc">
+    Soluções pensadas para pequenos negócios, profissionais autônomos e empresas que desejam se destacar.
+  </p>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Sites Modernos</h3>
+      <p>Sites institucionais rápidos, bonitos e responsivos, prontos para apresentar sua empresa com autoridade.</p>
+    </div>
+
+    <div class="card">
+      <h3>Páginas Personalizadas</h3>
+      <p>Landing pages e páginas digitais para divulgar serviços, produtos, redes sociais e formas de contato.</p>
+    </div>
+
+    <div class="card">
+      <h3>Cartões Inteligentes</h3>
+      <p>Cartões NFC e QR Code que direcionam seus clientes para sua página, WhatsApp, redes sociais e localização.</p>
+    </div>
+
+    <div class="card">
+      <h3>Presença Digital</h3>
+      <p>Organização visual da sua marca para passar mais confiança, profissionalismo e facilitar conversões.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="neon-text">Modelo para Clientes</h2>
+  <p class="section-desc">
+    Este espaço pode ser usado para mostrar exemplos de sites, fachadas, produtos ou serviços de clientes.
+  </p>
+
+  <div class="carousel">
+    <div class="slides" id="slides">
+      <img src="img/foto1.jpg" alt="Foto 1">
+      <img src="img/foto2.jpg" alt="Foto 2">
+      <img src="img/foto3.jpg" alt="Foto 3">
+      <img src="img/foto4.jpg" alt="Foto 4">
+    </div>
+
+    <button class="prev" onclick="mudarSlide(-1)">❮</button>
+    <button class="next" onclick="mudarSlide(1)">❯</button>
+  </div>
+</section>
+
+<section>
+  <h2 class="neon-text">Como Funciona</h2>
+
+  <div class="destaque">
+    <div class="cards">
+      <div class="card">
+        <h3>1. Entendimento</h3>
+        <p>Você informa o tipo de negócio, fotos, endereço, WhatsApp, redes sociais e objetivo da página.</p>
+      </div>
+
+      <div class="card">
+        <h3>2. Criação</h3>
+        <p>Montamos a página com visual profissional, botões de contato, localização e identidade personalizada.</p>
+      </div>
+
+      <div class="card">
+        <h3>3. Publicação</h3>
+        <p>O site vai ao ar e pode ser usado em cartão NFC, QR Code, Instagram, WhatsApp e Google.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="neon-text">Avaliações</h2>
+
+  <div class="cards">
+    <div class="card avaliacao">
+      <h3>★★★★★</h3>
+      <p>“Visual moderno, atendimento rápido e resultado muito profissional.”</p>
+      <strong>- Cliente</strong>
+    </div>
+
+    <div class="card avaliacao">
+      <h3>★★★★★</h3>
+      <p>“Agora meus clientes conseguem encontrar tudo em uma única página.”</p>
+      <strong>- Cliente</strong>
+    </div>
+
+    <div class="card avaliacao">
+      <h3>★★★★★</h3>
+      <p>“O cartão inteligente chamou muita atenção e facilitou meus contatos.”</p>
+      <strong>- Cliente</strong>
+    </div>
+  </div>
+</section>
+
+<section class="redes">
+  <h2 class="neon-text">Redes Sociais</h2>
+  <p class="section-desc">Acompanhe a Contempla Digital e conheça nossos projetos.</p>
+
+  <a class="btn-neon" href="https://www.instagram.com/" target="_blank">Instagram</a>
+  <a class="btn-neon btn-pink" href="https://www.facebook.com/" target="_blank">Facebook</a>
+  <a class="btn-neon" href="https://www.tiktok.com/" target="_blank">TikTok</a>
+</section>
+
+<section id="localizacao" class="mapa">
+  <h2 class="neon-text">Localização</h2>
+
+  <iframe 
+    src="https://www.google.com/maps?q=Garibaldi%20RS&output=embed"
+    allowfullscreen=""
+    loading="lazy">
+  </iframe>
+
+  <div style="text-align:center; margin-top:25px;">
+    <a class="btn-neon btn-pink" href="https://www.google.com/maps/dir/?api=1&destination=Garibaldi%20RS" target="_blank">
+      Traçar rota
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Contempla Digital - Todos os direitos reservados.</p>
+  <p>Sites • Páginas • Cartões Inteligentes</p>
+</footer>
+
+<a class="whatsapp-fixo" href="https://wa.me/5554999999999" target="_blank">
+  WhatsApp
+</a>
+
+<script>
+  let slideAtual = 0;
+
+  function mudarSlide(direcao) {
+    const slides = document.getElementById("slides");
+    const totalSlides = slides.children.length;
+
+    slideAtual += direcao;
+
+    if (slideAtual < 0) {
+      slideAtual = totalSlides - 1;
+    }
+
+    if (slideAtual >= totalSlides) {
+      slideAtual = 0;
+    }
+
+    slides.style.transform = `translateX(-${slideAtual * 100}%)`;
+  }
+
+  setInterval(() => {
+    mudarSlide(1);
+  }, 4000);
+</script>
+
+</body>
+</html>
